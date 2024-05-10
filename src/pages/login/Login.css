@@ -1,0 +1,29 @@
+.loginWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.paperWrapper {
+  width: 400px;
+  padding: 20px;
+}
+
+.formWrapper {
+  width: 100%;
+}
+
+.cardContentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+
+.textField {
+  width: 100%;
+}
+
+.justifyCenter {
+  justify-content: center !important;
+}
