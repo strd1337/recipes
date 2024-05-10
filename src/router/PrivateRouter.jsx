@@ -1,8 +1,13 @@
 import React from 'react'
+import { Navigate, Outlet } from 'react-router-dom';
 
 const PrivateRouter = () => {
+  const isUserExist = true;
+
   return (
-    <div>PrivateRouter</div>
+    <div>
+      {isUserExist ? <Outlet /> : <Navigate to="/login" />}
+    </div>
   )
 }
 
