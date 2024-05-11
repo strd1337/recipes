@@ -3,6 +3,10 @@ import { useState } from "react";
 import axios from "axios"
 import Header from "../../components/header/Header";
 import Card from "../../components/card/Card";
+import noRecipes from "../../assets/norecipes.jpg"
+import { 
+  Typography,
+} from '@mui/material';
 
 const Home = () => {
   const mealTypes = [
@@ -15,7 +19,7 @@ const Home = () => {
 
   const [query, setQuery] = useState("");
   const [selectedMeal, setSelectedMeal] = useState(mealTypes[0]);
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState(null);
 
   const appId = "564bfd9b";
   const appKey = "14e1bdbc907e2c0368d5948ca3b4af72";
@@ -41,7 +45,15 @@ const Home = () => {
         mealTypes={mealTypes}
         getData={getData}
       />
-      <Card />
+      {!recipes && <img src={noRecipes} className="noRecipesImg" alt="No recipe icon"></img>}
+      {recipes?.length === 0 && 
+        <Typography variant="h3">
+          Sorry, try another food name
+        </Typography>
+      }
+      {
+        recipes?.length > 0 && <Card recipes={recipes} />
+      }
     </div>
   )
 }
