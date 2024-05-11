@@ -1,0 +1,18 @@
+.headerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+.paperWrapper {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.typoWrapper {
+  margin: 20px;
+  margin-bottom: 10px;
+}
