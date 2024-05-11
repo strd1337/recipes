@@ -21,10 +21,13 @@ import InfoIcon from '@mui/icons-material/Info';
 const NavBar = () => {
   const [open, setOpen] = useState(false);
 
+  const user = localStorage.getItem("user");
+
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
+    localStorage.removeItem("user");
     navigate("/login");
   }
 
@@ -82,7 +85,9 @@ const NavBar = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Culinary Companion
           </Typography>
-          <Button color="inherit" onClick={handleLogin}>Login</Button>
+          <Button color="inherit" onClick={handleLogin}>
+            {user ? "Logout" : "Login"}
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer open={open} onClose={toggleDrawer(false)}>
