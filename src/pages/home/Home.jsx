@@ -1,10 +1,20 @@
 import "./Home.css"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios"
+import Header from "../../components/header/Header";
+import Card from "../../components/card/Card";
 
 const Home = () => {
-  const [query, setQuery] = useState("egg");
-  const [selectedMeal, setSelectedMeal] = useState("breakfast");
+  const mealTypes = [
+    "Breakfast",
+    "Lunch",
+    "Dinner",
+    "Snack",
+    "TeaTime",
+  ];
+
+  const [query, setQuery] = useState("");
+  const [selectedMeal, setSelectedMeal] = useState(mealTypes[0]);
   const [recipes, setRecipes] = useState([]);
 
   const appId = "564bfd9b";
@@ -21,12 +31,18 @@ const Home = () => {
     }
   }
 
-  useEffect(() => {
-    getData();
-  }, []);
-
   return (
-    <div>Home</div>
+    <div>
+      <Header 
+        query={query} 
+        setQuery={setQuery}
+        selectedMeal={selectedMeal}
+        setSelectedMeal={setSelectedMeal} 
+        mealTypes={mealTypes}
+        getData={getData}
+      />
+      <Card />
+    </div>
   )
 }
 
